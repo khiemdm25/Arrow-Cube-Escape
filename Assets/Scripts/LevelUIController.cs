@@ -1,0 +1,90 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+
+public class LevelUIController : MonoBehaviour
+{
+    [Header("Buttons")]
+    [SerializeField] private Button playButton;
+    [SerializeField] private List<Button> levelButtons = new List<Button>();
+
+    [Header("Loading UI")]
+    [SerializeField] private GameObject loadingPanel;
+    [SerializeField] private Slider loadingSlider;
+    [SerializeField] private string playSceneName = "PlayScene";
+
+    private void Start()
+    {
+        SetupButtons();
+    }
+
+    void SetupButtons()
+    {
+        playButton.onClick.RemoveAllListeners();
+        playButton.onClick.AddListener(() =>
+        {
+            StartCoroutine(LoadScene());
+        });
+
+        for (int i = 0; i < levelButtons.Count; i++)
+        {
+            int index = i;
+
+            levelButtons[i].onClick.RemoveAllListeners();
+            levelButtons[i].onClick.AddListener(() =>
+            {
+                LevelManager.Instance.SelectLevel(index);
+                StartCoroutine(LoadScene());
+            });
+
+            UpdateButtonState(levelButtons[i], index);
+        }
+    }
+
+    IEnumerator LoadScene()
+    {
+        if (LevelManager.Instance.currentLevelIndex < 0)
+        {
+            LevelManager.Instance.currentLevelIndex =
+                LevelManager.Instance.highestUnlockedLevel;
+        }
+
+        loadingPanel.SetActive(true);
+
+        AsyncOperation op = SceneManager.LoadSceneAsync(playSceneName);
+        op.allowSceneActivation = false;
+
+        float progress = 0f;
+
+        while (!op.isDone)
+        {
+            float target = Mathf.Clamp01(op.progress / 0.9f);
+
+            progress = Mathf.Lerp(progress, target, Time.deltaTime * 5f);
+            loadingSlider.value = progress;
+
+            if (progress >= 0.99f)
+            {
+                yield return new WaitForSeconds(0.2f);
+                op.allowSceneActivation = true;
+            }
+
+            yield return null;
+        }
+    }
+
+    void UpdateButtonState(Button button, int index)
+    {
+        bool isUnlocked = index <= LevelManager.Instance.highestUnlockedLevel;
+
+        button.interactable = isUnlocked;
+
+        ColorBlock colors = button.colors;
+
+        colors.normalColor = isUnlocked ? Color.white : Color.gray;
+
+        button.colors = colors;
+    }
+}

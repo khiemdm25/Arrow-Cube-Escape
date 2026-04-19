@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Level_2
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
   gridSize: 11
-  cubePrefab: {fileID: 4633961937693718800, guid: 4cc403c2c90da0e4b853f7b8764a50c9, type: 3}
+  cubePrefab: {fileID: 796589361852527458, guid: 4cc403c2c90da0e4b853f7b8764a50c9, type: 3}
+  arrow: []
   parData:
     rating: 0
     strokes: 0

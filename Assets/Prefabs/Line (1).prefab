@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 5332887464465419174}
   - component: {fileID: 6110258144641172334}
   - component: {fileID: 7987283725291170620}
+  - component: {fileID: 333016153595219589}
   m_Layer: 6
   m_Name: Line (1)
   m_TagString: Untagged
@@ -289,6 +290,20 @@ MonoBehaviour:
   thickness: 1
   extraLength: 1
   autoUpdateInPlayMode: 1
+--- !u!114 &333016153595219589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506843982874700415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3013f1bcf4cefe04bbb1262907d69d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LineShake
+  duration: 0.15
+  strength: 0.05
 --- !u!1 &5009899635433331649
 GameObject:
   m_ObjectHideFlags: 0

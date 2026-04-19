@@ -6,27 +6,38 @@ public class LineClick : MonoBehaviour, IPointerClickHandler
     private LineAnimation _lineAnimation;
     private LineHitChecker _lineHitChecker;
     private LineDestroyer _lineDestroyer;
+    private LineShake _lineShake;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _lineAnimation = GetComponent<LineAnimation>();
         _lineHitChecker = GetComponent<LineHitChecker>();
         _lineDestroyer = GetComponent<LineDestroyer>();
+        _lineShake = GetComponent<LineShake>();
 
         if (_lineHitChecker != null)
             _lineHitChecker.OnlineHit += HandleLineHit;
     }
+
     private void HandleLineHit()
     {
         _lineAnimation.Play(false);
         _lineDestroyer.StopCountdown();
+
+        if (_lineShake != null)
+            _lineShake.PlayShake();
     }
+
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("CLICKED!");
+        Debug.Log("click");
+
         _lineDestroyer.StartCountdown();
         _lineAnimation.Play(true);
-        _lineHitChecker.StartChecking();
+
+        if (_lineHitChecker != null)
+        {
+            _lineHitChecker.StartChecking();
+        }
     }
 }

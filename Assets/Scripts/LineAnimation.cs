@@ -22,7 +22,7 @@ public class LineAnimation : MonoBehaviour
         }
 
         var lastPoint = line.GetPosition(count - 1);
-        direction = lastPoint - line.GetPosition(count -2);
+        direction = lastPoint - line.GetPosition(count - 2);
     }
 
     public void Play(bool forwardDirection)
@@ -36,7 +36,7 @@ public class LineAnimation : MonoBehaviour
     {
         if (!play) return;
 
-        if(!line || line.positionCount < 2) return;
+        if (!line || line.positionCount < 2) return;
 
         if (forward)
         {
@@ -61,13 +61,13 @@ public class LineAnimation : MonoBehaviour
         tailPoint += tailDirection.normalized * speed * Time.deltaTime;
         line.SetPosition(0, tailPoint);
 
-        if (!(Vector3.Distance(tailPoint, line.GetPosition(1)) < 0.1f)) return; 
-        
+        if (!(Vector3.Distance(tailPoint, line.GetPosition(1)) < 0.1f)) return;
+
         var newcount = count - 1;
         var newPositions = new Vector3[newcount];
-        for (int i = 0; i < count; i++)
+        for (int i = 1; i < count; i++)
         {
-            newPositions[i -1] = line.GetPosition(i);
+            newPositions[i - 1] = line.GetPosition(i);
         }
         line.positionCount = newcount;
         line.SetPositions(newPositions);

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class LineRayCastGun : MonoBehaviour
 {
-    private Transform head;
-    private float rayLength = 5f;
+    [SerializeField] private Transform head;
+    [SerializeField] private float rayLength = 5f;
 
     [SerializeField] private float offset = 0.5f;
     [SerializeField] private LayerMask layerMask = ~0;
@@ -31,20 +31,15 @@ public class LineRayCastGun : MonoBehaviour
         if (!ensureHead()) return false;
 
         Vector3 origin = GetOrigin();
-        Vector3 direction = transform.forward.normalized;
+        Vector3 direction = head.up;
 
-        RaycastHit hitInfo;
-        bool hit = Physics.Raycast(origin, direction, out hitInfo, rayLength, layerMask);
-
-        if (hit)
+        if (Physics.Raycast(origin, direction, out RaycastHit hit, rayLength, layerMask))
         {
-            LastHit = hitInfo;
+            LastHit = hit;
             return true;
         }
-
         return false;
     }
-
 
     private bool ensureHead()
     {
@@ -54,7 +49,7 @@ public class LineRayCastGun : MonoBehaviour
     }
     private Vector3 GetOrigin()
     {
-        return head.position + head.up * offset;
+        return head.position + head.forward * offset;
     }
     private void OnDrawGizmos()
     {

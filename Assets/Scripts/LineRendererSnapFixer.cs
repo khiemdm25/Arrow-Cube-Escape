@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 [ExecuteAlways]
 [RequireComponent(typeof(LineRenderer))]
 public class LineRendererSnapFixer : MonoBehaviour
@@ -34,7 +34,7 @@ public class LineRendererSnapFixer : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector3 p = lr.GetPosition(i);
-            p= Snap(p);
+            p = Snap(p);
             lr.SetPosition(i, p);
         }
     }
@@ -46,10 +46,9 @@ public class LineRendererSnapFixer : MonoBehaviour
 
     private Vector3 Snap(Vector3 v)
     {
-        float s = snapSize;
-        v.x = Mathf.Round(v.x / snapSize) * s;
-        v.y = Mathf.Round(v.y / snapSize) * s;
-        v.z = Mathf.Round(v.z / snapSize) * s;
+        v.x = (float)Mathf.Round(v.x * 1000f) / 1000f;
+        v.y = (float)Mathf.Round(v.y * 1000f) / 1000f;
+        v.z = (float)Mathf.Round(v.z * 1000f) / 1000f;
         return v;
     }
 }

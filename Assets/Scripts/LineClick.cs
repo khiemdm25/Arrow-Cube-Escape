@@ -14,7 +14,8 @@ public class LineClick : MonoBehaviour, IPointerClickHandler
         _lineHitChecker = GetComponent<LineHitChecker>();
         _lineDestroyer = GetComponent<LineDestroyer>();
 
-        _lineHitChecker.OnlineHit += HandleLineHit;
+        if (_lineHitChecker != null)
+            _lineHitChecker.OnlineHit += HandleLineHit;
     }
     private void HandleLineHit()
     {
@@ -23,6 +24,7 @@ public class LineClick : MonoBehaviour, IPointerClickHandler
     }
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("CLICKED!");
         _lineDestroyer.StartCountdown();
         _lineAnimation.Play(true);
         _lineHitChecker.StartChecking();

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LineSegmeniColliderSpawner2D : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
+    [SerializeField] private LineRenderer lineRenderer;
 
     [SerializeField] private GameObject segmentPrefab;
 
-    private float thickness = 0.2f;
+    [SerializeField] private float thickness = 0.2f;
 
     [SerializeField] private float extraLength = 0.2f;
 
@@ -16,6 +16,7 @@ public class LineSegmeniColliderSpawner2D : MonoBehaviour
 
     private readonly List<GameObject> _spawnedSegments = new();
 
+    [ContextMenu("rebuild")]
     private void RebuildSegmentsContextMenu()
     {
         RebuildSegments();
@@ -51,22 +52,22 @@ public class LineSegmeniColliderSpawner2D : MonoBehaviour
             if (length < 0.001f) continue;
 
             Vector3 mid = (a + b) * 0.5f;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.LookRotation(dir);
 
-            GameObject segment = Instantiate(segmentPrefab, mid, Quaternion.Euler(0, 0, angle), transform);
+            GameObject segment = Instantiate(segmentPrefab, mid, rotation, transform);
             _spawnedSegments.Add(segment);
 
             BoxCollider box = segment.GetComponent<BoxCollider>();
 
             if (box != null)
             {
-                Vector3 size = box.size;         
-                size.x = length + extraLength;
+                Vector3 size = box.size;
+                size.z = length + extraLength;
+                size.x = thickness;
                 size.y = thickness;
-                size.z = thickness;             
-
                 box.size = size;
                 box.center = Vector3.zero;
+
             }
         }
     }

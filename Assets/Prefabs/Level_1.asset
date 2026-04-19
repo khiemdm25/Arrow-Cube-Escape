@@ -10,15 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f18c841deca4994abcc85d0f18b45e6, type: 3}
-  m_Name: New Level SO
+  m_Name: Level_1
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
   gridSize: 5
-  arrows:
-  - arrowPrefab: {fileID: 0}
-    positionsOriginal:
-    - {x: 0, y: 0, z: 0}
-    gridPosition: {x: 0, y: 0, z: 0}
-    arrowType: 0
+  cubePrefab: {fileID: 8873709000958345099, guid: 60f9a4554c97f5d48be73109c8286a82, type: 3}
   parData:
-  - rating: 0
+    rating: 0
     strokes: 0

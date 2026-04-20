@@ -3,9 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
     public GameObject winPanel;
-
     private int arrowCount;
 
     private void Awake()

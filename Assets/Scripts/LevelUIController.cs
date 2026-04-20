@@ -6,11 +6,8 @@ using System.Collections.Generic;
 
 public class LevelUIController : MonoBehaviour
 {
-    [Header("Buttons")]
     [SerializeField] private Button playButton;
     [SerializeField] private List<Button> levelButtons = new List<Button>();
-
-    [Header("Loading UI")]
     [SerializeField] private GameObject loadingPanel;
     [SerializeField] private Slider loadingSlider;
     [SerializeField] private string playSceneName = "PlayScene";
@@ -47,8 +44,7 @@ public class LevelUIController : MonoBehaviour
     {
         if (LevelManager.Instance.currentLevelIndex < 0)
         {
-            LevelManager.Instance.currentLevelIndex =
-                LevelManager.Instance.highestUnlockedLevel;
+            LevelManager.Instance.currentLevelIndex = LevelManager.Instance.highestUnlockedLevel;
         }
 
         loadingPanel.SetActive(true);
@@ -78,13 +74,9 @@ public class LevelUIController : MonoBehaviour
     void UpdateButtonState(Button button, int index)
     {
         bool isUnlocked = index <= LevelManager.Instance.highestUnlockedLevel;
-
         button.interactable = isUnlocked;
-
         ColorBlock colors = button.colors;
-
         colors.normalColor = isUnlocked ? Color.white : Color.gray;
-
         button.colors = colors;
     }
 }

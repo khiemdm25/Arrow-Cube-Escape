@@ -4,11 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SimpleUIController : MonoBehaviour
 {
-    [Header("Scene Name")]
     [SerializeField] private string playSceneName = "PlayScene";
     [SerializeField] private string menuSceneName = "MenuScene";
 
-    [Header("Buttons")]
     [SerializeField] private Button nextButton;
     [SerializeField] private Button backButton;
     [SerializeField] private Button homeButton;
@@ -20,7 +18,6 @@ public class SimpleUIController : MonoBehaviour
         SetupHome();
     }
 
-    // ========= NEXT LEVEL =========
     void SetupNext()
     {
         if (nextButton == null) return;
@@ -32,7 +29,6 @@ public class SimpleUIController : MonoBehaviour
         });
     }
 
-    // ========= BACK =========
     void SetupBack()
     {
         if (backButton == null) return;
@@ -44,7 +40,6 @@ public class SimpleUIController : MonoBehaviour
         });
     }
 
-    // ========= HOME =========
     void SetupHome()
     {
         if (homeButton == null) return;

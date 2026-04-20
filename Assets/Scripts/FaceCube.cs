@@ -3,16 +3,13 @@
 [ExecuteAlways]
 public class FaceCube : MonoBehaviour
 {
-    [Header("References")]
     [SerializeField] private Transform cube;
     [SerializeField] private Transform pra;
     [SerializeField] private GameObject arrowPrefab;
 
-    [Header("Arrow Settings")]
     [SerializeField] private int totalArrow = 6;
     [SerializeField] private float surfaceOffset = 0.5f;
 
-    [Header("Grid Settings")]
     [SerializeField] private int gridX = 5;
     [SerializeField] private int gridY = 5;
 
@@ -68,7 +65,6 @@ public class FaceCube : MonoBehaviour
 
         int faceCount = 6;
 
-        // 🔹 mỗi mặt ít nhất 1 arrow
         int baseCount = Mathf.Max(1, totalArrow / faceCount);
         int remaining = totalArrow - baseCount * faceCount;
 
@@ -76,7 +72,6 @@ public class FaceCube : MonoBehaviour
         {
             int spawnCount = baseCount;
 
-            // 🔥 random cộng thêm từ phần dư
             if (remaining > 0 && Random.value > 0.5f)
             {
                 spawnCount++;

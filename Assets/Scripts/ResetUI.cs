@@ -22,8 +22,6 @@ public class ResetUI : MonoBehaviour
         Debug.Log("RESET DONE");
 
         confirmPanel.SetActive(false);
-
-        // reload lại scene menu
         UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
     }
 }

@@ -4,12 +4,9 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
-
     public LevelData levelData;
-
     public int currentLevelIndex = -1;
     public int highestUnlockedLevel = 0;
-
     private const string SAVE_KEY = "LEVEL_UNLOCK";
 
     private void Awake()

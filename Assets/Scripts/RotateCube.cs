@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class RotateCube : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 0.2f;
-    [SerializeField] float damping = 5f; // độ giảm tốc
+    [SerializeField] float damping = 5f;
 
     private Vector2 lastMousePos;
     private Vector2 velocity;
@@ -34,14 +34,11 @@ public class RotateCube : MonoBehaviour
             velocity = delta * rotateSpeed;
 
             Rotate(velocity);
-
             lastMousePos = currentPos;
         }
         else
         {
-            // inertia (quay tiếp sau khi thả)
             velocity = Vector2.Lerp(velocity, Vector2.zero, damping * Time.deltaTime);
-
             Rotate(velocity);
         }
     }

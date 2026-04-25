@@ -276,7 +276,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76113243}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -284,12 +284,12 @@ RectTransform:
   - {fileID: 1694463541}
   - {fileID: 1921975569}
   - {fileID: 97137097}
-  m_Father: {fileID: 1543295034}
+  m_Father: {fileID: 1152208975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -11}
-  m_SizeDelta: {x: 1500, y: 700}
+  m_AnchoredPosition: {x: 1, y: 0}
+  m_SizeDelta: {x: 950, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &76113245
 MonoBehaviour:
@@ -830,7 +830,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -416}
+  m_AnchoredPosition: {x: 0, y: -826}
   m_SizeDelta: {x: 900, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &156267170
@@ -1197,7 +1197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 445}
+  m_AnchoredPosition: {x: 0, y: 596}
   m_SizeDelta: {x: 700, y: 170}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &245647201
@@ -1319,19 +1319,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 352193521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1322549511}
-        m_TargetAssemblyTypeName: EvenButton, Assembly-CSharp
-        m_MethodName: PlayMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &352193521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2617,7 +2605,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -253}
-  m_SizeDelta: {x: 1902, y: 200}
+  m_SizeDelta: {x: 1080, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941811396
 MonoBehaviour:
@@ -2666,8 +2654,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 130.5
+  m_fontSizeBase: 130.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3201,13 +3189,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 76113244}
   m_Father: {fileID: 1543295034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 44}
-  m_SizeDelta: {x: 1600, y: 700}
+  m_AnchoredPosition: {x: 0, y: -57}
+  m_SizeDelta: {x: 1000, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1152208976
 MonoBehaviour:
@@ -3422,7 +3411,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1322549510}
   - component: {fileID: 1322549509}
-  - component: {fileID: 1322549511}
   - component: {fileID: 1322549513}
   - component: {fileID: 1322549512}
   - component: {fileID: 1322549514}
@@ -3473,22 +3461,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1322549511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322549508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d93771e21fe9624ca7561ec1b988c52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EvenButton
-  menuPanel: {fileID: 124555228}
-  levelPanel: {fileID: 1543295034}
-  slideDistance: 800
-  duration: 1
 --- !u!114 &1322549512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3501,7 +3473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0739f44a15a3f459a829b5b6242073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelUIController
-  playButton: {fileID: 513304575}
+  playButton: {fileID: 352193520}
   levelButtons:
   - {fileID: 1694463542}
   - {fileID: 1921975570}
@@ -3619,7 +3591,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1322549511}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: EvenButton, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -3776,7 +3748,6 @@ RectTransform:
   m_Children:
   - {fileID: 1152208975}
   - {fileID: 245647200}
-  - {fileID: 76113244}
   - {fileID: 156267169}
   m_Father: {fileID: 1904963173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

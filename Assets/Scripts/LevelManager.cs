@@ -1,12 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+
     public LevelData levelData;
+
     public int currentLevelIndex = -1;
     public int highestUnlockedLevel = 0;
+
     private const string SAVE_KEY = "LEVEL_UNLOCK";
 
     private void Awake()
@@ -26,50 +29,60 @@ public class LevelManager : MonoBehaviour
     void LoadProgress()
     {
         highestUnlockedLevel = PlayerPrefs.GetInt(SAVE_KEY, 0);
+
+        if (levelData != null && levelData.alllevel.Count > 0)
+        {
+            highestUnlockedLevel = Mathf.Clamp(
+                highestUnlockedLevel,
+                0,
+                levelData.alllevel.Count - 1
+            );
+        }
     }
 
     void SaveProgress()
     {
         PlayerPrefs.SetInt(SAVE_KEY, highestUnlockedLevel);
-    }
-
-    public void SelectLevel(int index)
-    {
-        currentLevelIndex = index;
+        PlayerPrefs.Save();
     }
 
     public LevelSO GetCurrentLevel()
     {
-        if (currentLevelIndex < 0)
-            currentLevelIndex = highestUnlockedLevel;
-
+        if (levelData == null || levelData.alllevel.Count == 0)
+        {
+            Debug.LogError("LevelData rỗng!");
+            return null;
+        }
+        currentLevelIndex = highestUnlockedLevel;
         return levelData.alllevel[currentLevelIndex];
     }
-
     public void Play()
     {
-        if (currentLevelIndex < 0)
-            currentLevelIndex = highestUnlockedLevel;
-
+        currentLevelIndex = highestUnlockedLevel;
         SceneManager.LoadScene("PlayScene");
     }
-
     public void WinLevel()
     {
-        if (currentLevelIndex >= highestUnlockedLevel)
+        Debug.Log("Win Level: " + currentLevelIndex);
+
+        if (currentLevelIndex == highestUnlockedLevel)
         {
-            highestUnlockedLevel = currentLevelIndex + 1;
+            highestUnlockedLevel++;
+            if (highestUnlockedLevel >= levelData.alllevel.Count)
+            {
+                highestUnlockedLevel = levelData.alllevel.Count - 1;
+            }
             SaveProgress();
+            Debug.Log("Unlock Level: " + highestUnlockedLevel);
         }
     }
 
     public void NextLevel()
     {
-        currentLevelIndex++;
-
-        if (currentLevelIndex >= levelData.alllevel.Count)
-            currentLevelIndex = 0;
-
+        if (currentLevelIndex < highestUnlockedLevel)
+        {
+            currentLevelIndex++;
+        }
         SceneManager.LoadScene("PlayScene");
     }
 }

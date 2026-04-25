@@ -1,8 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LineDestroyer : MonoBehaviour
 {
-    [SerializeField] private float destroyDelay = 1f;
+    [SerializeField] private float destroyDelay = 3f;
     private float _countdown;
     private bool _counting;
 
@@ -20,17 +20,15 @@ public class LineDestroyer : MonoBehaviour
     private void Update()
     {
         if (!_counting) return;
-
         _countdown -= Time.deltaTime;
-
         if (_countdown <= 0f)
         {
             Destroy(gameObject);
         }
     }
-
     private void OnDestroy()
     {
+        if (!gameObject.scene.isLoaded) return;
         if (GameManager.Instance != null)
         {
             GameManager.Instance.OnArrowDestroyed();

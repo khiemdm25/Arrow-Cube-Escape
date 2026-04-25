@@ -1,10 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameObject winPanel;
     private int arrowCount;
+    private bool isWin = false;
 
     private void Awake()
     {
@@ -14,15 +15,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         arrowCount = FindObjectsOfType<LineDestroyer>().Length;
-        winPanel.SetActive(false);
+
+        if (winPanel != null)
+            winPanel.SetActive(false);
+
+        isWin = false;
     }
 
     public void OnArrowDestroyed()
     {
+        if (isWin) return;
         arrowCount--;
-
         if (arrowCount <= 0)
         {
+            isWin = true;
             Win();
         }
     }
@@ -30,6 +36,9 @@ public class GameManager : MonoBehaviour
     void Win()
     {
         LevelManager.Instance.WinLevel();
-        winPanel.SetActive(true);
+
+        if (winPanel != null)
+            winPanel.SetActive(true);
     }
+
 }

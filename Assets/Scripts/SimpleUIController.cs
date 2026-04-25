@@ -1,11 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SimpleUIController : MonoBehaviour
 {
     [SerializeField] private string playSceneName = "PlayScene";
-    [SerializeField] private string menuSceneName = "MenuScene";
     [SerializeField] private GameObject pauseMenu;
 
     private bool isPaused = false;
@@ -60,7 +59,7 @@ public class SimpleUIController : MonoBehaviour
         homeButton.onClick.RemoveAllListeners();
         homeButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(menuSceneName);
+            Application.Quit();
         });
     }
 
@@ -98,8 +97,7 @@ public class SimpleUIController : MonoBehaviour
         homePauseButton.onClick.RemoveAllListeners();
         homePauseButton.onClick.AddListener(() =>
         {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene(menuSceneName);
+            Application.Quit();
         });
     }
 

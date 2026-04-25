@@ -18,6 +18,6 @@ public class LineRendererHead : MonoBehaviour
         Vector3 dir = (end - prev).normalized;
         if (dir.sqrMagnitude < 0.0000000001f) return;
 
-        transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0, rotationOffset, 0);
+        //transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0, rotationOffset, 0);
     }
 }

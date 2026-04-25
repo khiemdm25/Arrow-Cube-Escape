@@ -8,6 +8,7 @@ public class LineSegmeniColliderSpawner2D : MonoBehaviour
     [SerializeField] private GameObject segmentPrefab;
 
     [SerializeField] private float thickness = 0.2f;
+    [SerializeField] private float thinknessY = 0.5f;
 
     [SerializeField] private float extraLength = 0.2f;
 
@@ -63,7 +64,7 @@ public class LineSegmeniColliderSpawner2D : MonoBehaviour
                 Vector3 size = box.size;
                 size.z = length + extraLength;
                 size.x = thickness;
-                size.y = thickness;
+                size.y = thinknessY;
                 box.size = size;
                 box.center = Vector3.zero;
 

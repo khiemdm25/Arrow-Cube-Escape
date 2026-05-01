@@ -9,14 +9,20 @@ public class SimpleUIController : MonoBehaviour
 
     private bool isPaused = false;
 
+    [Header("Win Buttons")]
     [SerializeField] private Button nextButton;
     [SerializeField] private Button backButton;
     [SerializeField] private Button homeButton;
 
+    [Header("Pause Buttons")]
     [SerializeField] private Button pauseButton;
     [SerializeField] private Button playButton;
     [SerializeField] private Button homePauseButton;
     [SerializeField] private Button RestartButton;
+
+    [Header("Lose Buttons")] 
+    [SerializeField] private Button lostRestartButton;
+    [SerializeField] private Button lostHomeButton;
 
     private void Start()
     {
@@ -28,6 +34,8 @@ public class SimpleUIController : MonoBehaviour
         ResumeGame();
         HomeFromPause();
         RestartLevel();
+
+        SetupLose(); 
     }
 
     void SetupNext()
@@ -82,6 +90,7 @@ public class SimpleUIController : MonoBehaviour
     public void ResumeGame()
     {
         if (playButton == null) return;
+
         playButton.onClick.RemoveAllListeners();
         playButton.onClick.AddListener(() =>
         {
@@ -94,6 +103,7 @@ public class SimpleUIController : MonoBehaviour
     public void HomeFromPause()
     {
         if (homePauseButton == null) return;
+
         homePauseButton.onClick.RemoveAllListeners();
         homePauseButton.onClick.AddListener(() =>
         {
@@ -104,11 +114,33 @@ public class SimpleUIController : MonoBehaviour
     public void RestartLevel()
     {
         if (RestartButton == null) return;
+
         RestartButton.onClick.RemoveAllListeners();
         RestartButton.onClick.AddListener(() =>
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         });
+    }
+
+    void SetupLose()
+    {
+        if (lostRestartButton != null)
+        {
+            lostRestartButton.onClick.RemoveAllListeners();
+            lostRestartButton.onClick.AddListener(() =>
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            });
+        }
+        if (lostHomeButton != null)
+        {
+            lostHomeButton.onClick.RemoveAllListeners();
+            lostHomeButton.onClick.AddListener(() =>
+            {
+                Application.Quit();
+            });
+        }
     }
 }

@@ -3,7 +3,6 @@
 public class Zoom : MonoBehaviour
 {
     [SerializeField] private Transform target;
-
     [SerializeField] private float zoomSpeed = 0.01f;
     [SerializeField] private float minDistance = 3f;
     [SerializeField] private float maxDistance = 15f;
@@ -24,11 +23,12 @@ public class Zoom : MonoBehaviour
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
+        if (target == null) return;
         Renderer rend = target.GetComponentInChildren<Renderer>();
         if (rend != null)
         {
             float radius = rend.bounds.extents.magnitude;
-            minDistance = radius * 1.75f;
+            minDistance = radius * 2f;
         }
         currentDistance = Vector3.Distance(transform.position, target.position);
         targetDistance = currentDistance;
@@ -37,6 +37,7 @@ public class Zoom : MonoBehaviour
     void Update()
     {
         if (target == null) return;
+
         if (InputState.IsRotating)
         {
             InputState.IsZooming = false;
@@ -60,7 +61,6 @@ public class Zoom : MonoBehaviour
             InputState.IsZooming = false;
             delta = Input.mouseScrollDelta.y * 100f;
         }
-
         if (Mathf.Abs(delta) > 0.01f)
         {
             targetDistance -= delta * zoomSpeed;

@@ -4,6 +4,7 @@ public class RotateCube : MonoBehaviour
 {
     [SerializeField] float rotateSpeed = 0.2f;
     [SerializeField] float damping = 5f;
+    [SerializeField] float rotateThreshold = 5f;
 
     private Vector2 lastPos;
     private Vector2 velocity;
@@ -14,9 +15,9 @@ public class RotateCube : MonoBehaviour
         if (InputState.IsZooming)
         {
             dragging = false;
+            InputState.IsRotating = false;
             return;
         }
-
         Vector2 currentPos = Vector2.zero;
         bool pressDown = false;
         bool pressUp = false;
@@ -41,17 +42,26 @@ public class RotateCube : MonoBehaviour
             dragging = true;
             lastPos = currentPos;
             velocity = Vector2.zero;
+            InputState.IsRotating = false;
         }
         if (pressUp)
         {
             dragging = false;
+            InputState.IsRotating = false;
         }
         if (dragging && isPressing)
         {
-            InputState.IsRotating = true; 
             Vector2 delta = currentPos - lastPos;
-            velocity = delta * rotateSpeed;
-            Rotate(velocity);
+            if (delta.magnitude > rotateThreshold)
+            {
+                InputState.IsRotating = true;
+                velocity = delta * rotateSpeed;
+                Rotate(velocity);
+            }
+            else
+            {
+                InputState.IsRotating = false;
+            }
             lastPos = currentPos;
         }
         else

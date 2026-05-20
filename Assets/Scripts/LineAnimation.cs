@@ -3,7 +3,7 @@
 public class LineAnimation : MonoBehaviour
 {
     [SerializeField] private LineRenderer line;
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 7f;
 
     public bool play;
     public bool forward = true;

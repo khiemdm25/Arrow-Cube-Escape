@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineAnimation
   line: {fileID: 2880717360056689579}
-  speed: 5
+  speed: 10
   play: 0
   forward: 1
   direction: {x: 0, y: 0, z: 0}
@@ -789,7 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f5800fe99b33b49ba24ab5dcaee644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineDestroyer
-  destroyDelay: 3
+  destroyDelay: 1.5
 --- !u!114 &9154581635157880676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineAnimation
   line: {fileID: 5875989953808428542}
-  speed: 5
+  speed: 10
   play: 0
   forward: 1
   direction: {x: 0, y: 0, z: 0}
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f5800fe99b33b49ba24ab5dcaee644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineDestroyer
-  destroyDelay: 3
+  destroyDelay: 1.5
 --- !u!114 &5593405533690125558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1915,7 +1915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineAnimation
   line: {fileID: 6960693287122143736}
-  speed: 5
+  speed: 10
   play: 0
   forward: 1
   direction: {x: 0, y: 0, z: 0}
@@ -1944,7 +1944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f5800fe99b33b49ba24ab5dcaee644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineDestroyer
-  destroyDelay: 3
+  destroyDelay: 1.5
 --- !u!114 &1824114635770485734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2317,7 +2317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineAnimation
   line: {fileID: 1789060060104178336}
-  speed: 5
+  speed: 10
   play: 0
   forward: 1
   direction: {x: 0, y: 0, z: 0}
@@ -2346,7 +2346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f5800fe99b33b49ba24ab5dcaee644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineDestroyer
-  destroyDelay: 3
+  destroyDelay: 1.5
 --- !u!114 &3806116370046065596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2736,7 +2736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineAnimation
   line: {fileID: 1916853174205223503}
-  speed: 5
+  speed: 10
   play: 0
   forward: 1
   direction: {x: 0, y: 0, z: 0}
@@ -2765,7 +2765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83f5800fe99b33b49ba24ab5dcaee644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LineDestroyer
-  destroyDelay: 3
+  destroyDelay: 1.5
 --- !u!114 &5483075710111948535
 MonoBehaviour:
   m_ObjectHideFlags: 0
